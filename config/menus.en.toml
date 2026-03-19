@@ -10,6 +10,38 @@
 # overridden by providing a weight value. The menu will then be
 # ordered by weight from lowest to highest.
 
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 10
+
+[[main]]
+  name = "Publications"
+  pageRef = "publication"
+  weight = 20
+
+[[main]]
+  name = "Fun Staff"
+  weight = 30
+
+[[main]]
+  name = "Photograph"
+  parent = "Fun Staff"
+  pageRef = "photo"
+  weight = 30
+
+[[main]]
+  name = "Music"
+  parent = "Fun Staff"
+  pageRef = "music"
+  weight = 40
+
+[[main]]
+  name = "Movies"
+  parent = "Fun Staff"
+  pageRef = "movie"
+  weight = 50
+
 #[[main]]
 #  name = "Blog"
 #  pageRef = "posts"
