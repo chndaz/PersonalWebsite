@@ -1,0 +1,56 @@
+# Git 推送问题的解决方法
+
+## 问题说明
+你的本地 Git 仓库和 GitHub 远程仓库的代码历史不同步。
+- 本地有 Hugo 网站代码
+- 远程有 README.md 和不同的历史
+
+## 解决方法 - 在 PowerShell 终端执行以下命令：
+
+### 方法一：强制推送（推荐）
+
+```powershell
+cd C:\Users\ASUS\Hongnan
+git push origin main --force
+```
+
+### 方法二：如果方法一不行
+
+```powershell
+cd C:\Users\ASUS\Hongnan
+
+# 1. 先查看当前远程地址
+git remote -v
+
+# 2. 如果地址不是 https://github.com/chndaz/Hongnan.git，则重新设置
+git remote set-url origin https://github.com/chndaz/Hongnan.git
+
+# 3. 强制推送
+git push -u origin main --force
+```
+
+### 方法三：完全重新设置（如果上面都不行）
+
+```powershell
+cd C:\Users\ASUS\Hongnan
+
+# 1. 删除远程
+git remote remove origin
+
+# 2. 重新添加
+git remote add origin https://github.com/chndaz/Hongnan.git
+
+# 3. 强制推送所有代码
+git push -u origin main --force
+```
+
+## 验证是否成功
+
+推送后运行：
+```powershell
+git log --oneline -3
+```
+
+如果显示的 SHA 值是 c644013 或类似的（而不是 fb29a1e），说明推送成功！
+
+然后等待约 2 分钟，访问 https://chndaz.github.io/Hongnan/ 查看更新后的网站。

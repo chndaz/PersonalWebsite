@@ -1,0 +1,4 @@
+baseURL = 'https://chndaz.github.io/Hongnan'
+locale = 'en-us'
+title = 'Personal Website'
+theme = "blowfish"
